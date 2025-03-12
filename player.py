@@ -78,7 +78,10 @@ class YantraCollector:
         # pass
         g_x, g_y = self.goal_pos
         x, y = pos
-        return abs(g_x - x) + abs(g_y - y)
+        #changing the utility value for the terminal states including both p1 as well as p2 
+        x2, y2 = self.p2_pos
+        total_dis = - abs(g_x-x2) - abs(g_y - y2) + abs(g_x - x) + abs(g_y - y) 
+        return total_dis
 
     def best_player_move(self, pos):
         """
